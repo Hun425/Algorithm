@@ -14,7 +14,7 @@ public class Main {
     static StringTokenizer st;
 
     static int GCD(int A, int B) {
-        if (A > B) {
+
             if (A == 0) {
                 return B;
             }
@@ -23,23 +23,9 @@ public class Main {
             }
             int R = A / B;
 
-            return GCD(B, A - B * R);
-        } else {
-            int temp = A;
-            A = B;
-            B = temp;
             
-            if (A == 0) {
-                return B;
-            }
-            if (B == 0) {
-                return A;
-            }
-            int R = A / B;
-
-            return GCD(B, A - B * R);
-        }
-
+        
+        return GCD(B, A - B * R);
 
     }
 
