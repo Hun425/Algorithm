@@ -47,9 +47,9 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         int N = Integer.parseInt(br.readLine());
-        int result = N;
-        for (int i = 2; i < N; i++) {
-            for (int j = i; j < N; j++) {
+        int result = 0;
+        for (int i = 1; i < N+1; i++) {
+            for (int j = i; j < N+1; j++) {
                 if(i*j<=N)result++;
             }
         }
