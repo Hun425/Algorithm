@@ -22,7 +22,9 @@ public class Main {
             int e = Integer.parseInt(st.nextToken()); //도착 도시
             int dt = Integer.parseInt(st.nextToken()); //도시간의 거리
             int v = Integer.parseInt(st.nextToken()); //해당 도로의 통행료
+            
             max = Math.max(max,v);
+            
             arr[s].add(new int[]{e,dt,v});
         }
 
@@ -30,7 +32,7 @@ public class Main {
 
         for (int i = 0; i < N + 1; i++) {
             for (int j = 0; j < K + 1; j++) {
-                dt[i][j] =Integer.MAX_VALUE;
+                dt[i][j] =Integer.MAX_VALUE; //다익스트라 위한 최대값으로 초기화
             }
         }
 
@@ -39,7 +41,7 @@ public class Main {
         int ans = Integer.MAX_VALUE;
 
         for (int i = 1; i <K+1 ; i++) {
-            ans = Math.min(ans,dt[N][i]);
+            ans = Math.min(ans,dt[N][i]); //기준에 맞게 도착한 값 중에 최소값 구하기
         }
         if(ans==Integer.MAX_VALUE) System.out.println(-1);
         else System.out.println(ans);
@@ -51,16 +53,20 @@ public class Main {
 
         while (!pq.isEmpty()) {
             int[] temp = pq.poll();
+            
             int nowDt = temp[1];
             int nowV = temp[2];
+            
             if(nowV>max)continue;
 
             for (int[] ints : arr[temp[0]]) {
                 int e = ints[0]; // 목적지
                 int distance = ints[1]; //거리
                 int v = ints[2]; // 통행료
+                
                 int nextDt = nowDt + distance;
                 int nextV = nowV+v;
+                
                 if(nextV>max)continue;
 
                 if(dt[e][nextV]>nextDt){
