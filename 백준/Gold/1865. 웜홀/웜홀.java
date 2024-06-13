@@ -4,10 +4,12 @@ import java.io.*;
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
         int TC = Integer.parseInt(br.readLine());
 
         for (int t = 0; t < TC; t++) {
             StringTokenizer st = new StringTokenizer(br.readLine());
+
             int N = Integer.parseInt(st.nextToken());
             int M = Integer.parseInt(st.nextToken());
             int W = Integer.parseInt(st.nextToken());
@@ -43,9 +45,9 @@ public class Main {
             for (int k = 1; k <= N; k++) {
                 for (int i = 1; i <= N; i++) {
                     for (int j = 1; j <= N; j++) {
-                        if (arr[i][k] < Integer.MAX_VALUE / 2 && arr[k][j] < Integer.MAX_VALUE / 2) {
+                       
                             arr[i][j] = Math.min(arr[i][j], arr[i][k] + arr[k][j]);
-                        }
+                        
                     }
                 }
             }
